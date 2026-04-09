@@ -1,0 +1,1 @@
+Storage after A: {"II CSE_Semester 4_HON_TEST":[{"day":"Monday","slot":4},{"day":"Thursday","slot":4},{"day":"Saturday","slot":4}]}

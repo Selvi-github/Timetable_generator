@@ -1,0 +1,1862 @@
+%PDF-1.3
+%ºß¬à
+3 0 obj
+<</Type /Page
+/Parent 1 0 R
+/Resources 2 0 R
+/MediaBox [0 0 595.2799999999999727 841.8899999999999864]
+/Contents 4 0 R
+>>
+endobj
+4 0 obj
+<<
+/Length 692
+>>
+stream
+0.5670000000000001 w
+0 G
+BT
+/F2 26 Tf
+29.8999999999999986 TL
+0.145 0.388 0.922 rg
+42.5196850393700814 615.1183464566928478 Td
+(TIMETABLE GENERATOR) Tj
+ET
+BT
+/F2 18 Tf
+20.6999999999999993 TL
+0.278 0.333 0.412 rg
+42.5196850393700814 572.5986614173227736 Td
+(Complete Project Documentation) Tj
+ET
+0.15 0.39 0.92 RG
+2.8346456692913389 w
+42.5196850393700814 544.2522047244093528 m
+552.7603149606298985 544.2522047244093528 l
+S
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0.392 0.455 0.545 rg
+42.5196850393700814 515.9057480314959321 Td
+(Generated Date: 3/26/2026) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0.392 0.455 0.545 rg
+42.5196850393700814 496.0632283464566399 Td
+(Estimated Length: 3+ Pages) Tj
+ET
+endstream
+endobj
+5 0 obj
+<</Type /Page
+/Parent 1 0 R
+/Resources 2 0 R
+/MediaBox [0 0 595.2799999999999727 841.8899999999999864]
+/Contents 6 0 R
+>>
+endobj
+6 0 obj
+<<
+/Length 4865
+>>
+stream
+2.8346456692913389 w
+0.15 0.39 0.92 RG
+BT
+/F2 20 Tf
+23. TL
+0.145 0.388 0.922 rg
+42.5196850393700814 756.8506299212598378 Td
+(Timetable Generator Project Documentation) Tj
+ET
+BT
+/F2 16 Tf
+18.3999999999999986 TL
+0.118 0.161 0.231 rg
+42.5196850393700814 700.15771653543311 Td
+(1. Introduction) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0. g
+42.5196850393700814 666.1419685039369369 Td
+(The **Timetable Generator** is an advanced web-based application designed to automate the complex process of) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0. g
+42.5196850393700814 649.1340944881889072 Td
+(creating school or college timetables. By leveraging a custom heuristic algorithm, it ensures that all academic) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0. g
+42.5196850393700814 632.1262204724408775 Td
+(requirements are met while strictly adhering to constraints such as staff availability, room resources, and) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0. g
+42.5196850393700814 615.1183464566928478 Td
+(department-specific rules.) Tj
+ET
+BT
+/F2 16 Tf
+18.3999999999999986 TL
+0.118 0.161 0.231 rg
+42.5196850393700814 583.9372440944881646 Td
+(2. Objective) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0. g
+42.5196850393700814 549.9214960629921052 Td
+(The primary objective of this project is to eliminate the manual effort and errors associated with traditional timetable) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0. g
+42.5196850393700814 532.9136220472440755 Td
+(scheduling. It aims to provide a seamless, conflict-free scheduling experience that optimizes resource utilization) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0. g
+42.5196850393700814 515.9057480314959321 Td
+(across multiple sections and departments.) Tj
+ET
+BT
+/F2 16 Tf
+18.3999999999999986 TL
+0.118 0.161 0.231 rg
+42.5196850393700814 484.7246456692913057 Td
+(3. Problem Statement) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0. g
+42.5196850393700814 450.7088976377952463 Td
+(Manual scheduling is a logistical nightmare for educational institutions. It involves managing:) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0. g
+42.5196850393700814 433.7010236220471597 Td
+(- Multiple sections \(A, B, C, etc.\) sharing the same staff.) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0. g
+42.5196850393700814 416.69314960629913 Td
+(- Specific periods for Labs \(continuous blocks\) vs. Theory classes.) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0. g
+42.5196850393700814 399.6852755905511003 Td
+(- Fixed slots for global activities \(e.g., Guest Lectures, Counseling\).) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0. g
+42.5196850393700814 382.6774015748030706 Td
+(- Avoiding "clashes" where a teacher or subject is assigned to two places at once.) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0. g
+42.5196850393700814 365.6695275590550409 Td
+(Traditional methods are time-consuming and often result in overlaps that are difficult to detect.) Tj
+ET
+BT
+/F2 16 Tf
+18.3999999999999986 TL
+0.118 0.161 0.231 rg
+42.5196850393700814 334.4884251968503008 Td
+(4. Proposed System) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0. g
+42.5196850393700814 300.4726771653542983 Td
+(The proposed system is a **Full-Stack Web Application** that features:) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0. g
+42.5196850393700814 283.4648031496062686 Td
+(- **Automated Generation**: A "Generate" button that creates a complete grid in seconds.) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0. g
+42.5196850393700814 266.4569291338582389 Td
+(- **Cross-Section Sync**: A global registry that prevents a staff member from being scheduled in two different) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0. g
+42.5196850393700814 249.4490551181102092 Td
+(sections at the same time.) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0. g
+42.5196850393700814 232.4411811023621794 Td
+(- **Dynamic Configuration**: Easy management of staff profiles, subjects, and academic rules.) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0. g
+42.5196850393700814 215.4333070866141497 Td
+(- **Reliable Persistence**: Saving and retrieving generated timetables from a centralized database.) Tj
+ET
+BT
+/F2 16 Tf
+18.3999999999999986 TL
+0.118 0.161 0.231 rg
+42.5196850393700814 184.2522047244093528 Td
+(5. Features) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0. g
+42.5196850393700814 150.2364566929132934 Td
+(- **Intelligent Algorithm**: Handles Theory, Lab, and "Hybrid" \(Theory+Lab\) subjects.) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0. g
+42.5196850393700814 133.2285826771652637 Td
+(- **Conflict Highlighting**: Detects and reports unplaced subjects with reasons.) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0. g
+42.5196850393700814 116.220708661417234 Td
+(- **Staff Management**: Customizable staff profiles with workload limits \(max 5 periods/day\).) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0. g
+42.5196850393700814 99.2128346456692043 Td
+(- **Fixed Slot Support**: Ability to manually pin subjects to specific slots before auto-generation.) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0. g
+42.5196850393700814 82.2049606299211746 Td
+(- **PDF Export**: Generate professional, ready-to-print PDF timetables.) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0. g
+42.5196850393700814 65.1970866141731449 Td
+(- **Dashboard Overview**: Visual summary of sections and publication status.) Tj
+ET
+endstream
+endobj
+7 0 obj
+<</Type /Page
+/Parent 1 0 R
+/Resources 2 0 R
+/MediaBox [0 0 595.2799999999999727 841.8899999999999864]
+/Contents 8 0 R
+>>
+endobj
+8 0 obj
+<<
+/Length 4642
+>>
+stream
+2.8346456692913389 w
+0.15 0.39 0.92 RG
+BT
+/F2 16 Tf
+18.3999999999999986 TL
+0.118 0.161 0.231 rg
+42.5196850393700814 771.0238582677164914 Td
+(6. Tech Stack) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0. g
+42.5196850393700814 737.0081102362204319 Td
+(- **Frontend**: React 19, Vite \(Build Tool\), Tailwind CSS 4 \(Styling\)) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0. g
+42.5196850393700814 720.0002362204724022 Td
+(- **Animations**: Framer Motion) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0. g
+42.5196850393700814 702.9923622047243725 Td
+(- **Icons**: Lucide React) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0. g
+42.5196850393700814 685.9844881889763428 Td
+(- **Backend**: Node.js, Express) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0. g
+42.5196850393700814 668.9766141732283131 Td
+(- **Database**: MongoDB \(via Mongoose\)) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0. g
+42.5196850393700814 651.9687401574802834 Td
+(- **PDF Generation**: JSPDF & JSPDF-AutoTable) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0. g
+42.5196850393700814 634.9608661417322537 Td
+(- **Utilities**: Firebase \(potential auth/hosting\), Concurrent Processing) Tj
+ET
+BT
+/F2 16 Tf
+18.3999999999999986 TL
+0.118 0.161 0.231 rg
+42.5196850393700814 603.7797637795274568 Td
+(7. System Architecture) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0. g
+42.5196850393700814 569.7640157480313974 Td
+(The application follows a **Client-Server Architecture**:) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0. g
+42.5196850393700814 552.7561417322833677 Td
+(- **Client \(React\)**: Handles the UI, state management, and the core `generateTimetable` algorithm.) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0. g
+42.5196850393700814 535.748267716535338 Td
+(- **Server \(Express\)**: Provides RESTful API endpoints for data persistence.) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0. g
+42.5196850393700814 518.7403937007873083 Td
+(- **Database \(MongoDB\)**: Stores subjects, staff, and generated timetable configurations.) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0. g
+42.5196850393700814 487.559291338582625 Td
+(```mermaid) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0. g
+42.5196850393700814 470.5514173228345953 Td
+(graph TD) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0. g
+42.5196850393700814 453.5435433070865656 Td
+(User\(\(User\)\) -->|Interacts| UI[React Frontend]) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0. g
+42.5196850393700814 436.5356692913385359 Td
+(UI -->|Triggers| GA[Generation Algorithm]) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0. g
+42.5196850393700814 419.5277952755905062 Td
+(UI -->|API Requests| API[Express Server]) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0. g
+42.5196850393700814 402.5199212598424765 Td
+(API -->|CRUD Ops| DB[\(MongoDB\)]) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0. g
+42.5196850393700814 385.5120472440944468 Td
+(GA -->|Output| UI) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0. g
+42.5196850393700814 368.5041732283464171 Td
+(```) Tj
+ET
+BT
+/F2 16 Tf
+18.3999999999999986 TL
+0.118 0.161 0.231 rg
+42.5196850393700814 337.323070866141677 Td
+(8. System Workflow) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0. g
+42.5196850393700814 303.3073228346455608 Td
+(1. **Data Entry**: Admin adds Staff and Subjects into the system.) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0. g
+42.5196850393700814 286.2994488188975311 Td
+(2. **Configuration**: User selects a Section \(e.g., Year 2, Sec A\) and sets subject credits.) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0. g
+42.5196850393700814 269.2915748031495013 Td
+(3. **Trigger Generation**: The `timetableGenerator` script is executed.) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0. g
+42.5196850393700814 252.2837007874014716 Td
+(4. **Collision Check**: The algorithm checks the `Global Usage` registry to ensure no staff or resource is) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0. g
+42.5196850393700814 235.2758267716534419 Td
+(double-booked across sections.) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0. g
+42.5196850393700814 218.2679527559054122 Td
+(5. **Heuristic Placement**: Subjects are placed based on priority \(Labs first, then Theory\).) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0. g
+42.5196850393700814 201.2600787401573825 Td
+(6. **Review & Save**: User reviews the generated grid and saves it to the database.) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0. g
+42.5196850393700814 184.2522047244093528 Td
+(7. **Export**: The final timetable is exported to PDF for distribution.) Tj
+ET
+BT
+/F2 16 Tf
+18.3999999999999986 TL
+0.118 0.161 0.231 rg
+42.5196850393700814 153.0711023622046696 Td
+(9. Database Design) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0. g
+42.5196850393700814 119.0553543307086102 Td
+(The system uses the following Mongoose schemas:) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0. g
+42.5196850393700814 102.0474803149605805 Td
+(- **Staff**: `members` \(Array\), `lastUpdated` \(Date\)) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0. g
+42.5196850393700814 85.0396062992125508 Td
+(- **Subject**: `data` \(Nested object of years/semesters/subjects\)) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0. g
+42.5196850393700814 68.0317322834645211 Td
+(- **Timetable**:) Tj
+ET
+endstream
+endobj
+9 0 obj
+<</Type /Page
+/Parent 1 0 R
+/Resources 2 0 R
+/MediaBox [0 0 595.2799999999999727 841.8899999999999864]
+/Contents 10 0 R
+>>
+endobj
+10 0 obj
+<<
+/Length 4269
+>>
+stream
+2.8346456692913389 w
+0.15 0.39 0.92 RG
+BT
+/F1 10 Tf
+11.5 TL
+0. g
+42.5196850393700814 785.1970866141732586 Td
+(- `config`: { year, semester, section, etc. }) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0. g
+42.5196850393700814 768.1892125984252289 Td
+(- `timetable`: { Monday: [...], Tuesday: [...] }) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0. g
+42.5196850393700814 751.1813385826771992 Td
+(- `isPublished`: Boolean) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0. g
+42.5196850393700814 734.1734645669291695 Td
+(- `timestamp`: Date) Tj
+ET
+BT
+/F2 16 Tf
+18.3999999999999986 TL
+0.118 0.161 0.231 rg
+42.5196850393700814 702.9923622047243725 Td
+(10. Code Snippet \(Core Algorithm\)) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0. g
+42.5196850393700814 668.9766141732283131 Td
+(The heart of the system is the conflict-checking logic:) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0. g
+42.5196850393700814 637.7955118110235162 Td
+(```javascript) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0. g
+42.5196850393700814 620.7876377952754865 Td
+(const isStaffFree = \(staffName, day, slot, grid, isLab = false\) => {) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0. g
+42.5196850393700814 603.7797637795274568 Td
+(if \(!staffName || staffName === 'TBD'\) return true;) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0. g
+42.5196850393700814 572.5986614173227736 Td
+(// 1. Global Clash Check \(Occupied in another section at same time\)) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0. g
+42.5196850393700814 555.5907874015747439 Td
+(const key = `${day}_${slot}_${staffName}`;) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0. g
+42.5196850393700814 538.5829133858267141 Td
+(const occupiedBy = globalStaffUsage[key];) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0. g
+42.5196850393700814 521.5750393700786844 Td
+(if \(occupiedBy && occupiedBy !== currentContextKey\) return false;) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0. g
+42.5196850393700814 490.3939370078739444 Td
+(// 2. Daily Limit Check \(Max 5 per day\)) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0. g
+42.5196850393700814 473.3860629921259147 Td
+(const allSlots = getGlobalStaffSlots\(staffName, day\);) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0. g
+42.5196850393700814 456.378188976377885 Td
+(if \(allSlots.length >= 5\) return false;) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0. g
+42.5196850393700814 425.1970866141731449 Td
+(// 3. Consecutive Check \(Max 2 for non-lab\)) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0. g
+42.5196850393700814 408.1892125984251152 Td
+(if \(!isLab\) {) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0. g
+42.5196850393700814 391.1813385826770855 Td
+(// ... logic to prevent 3+ consecutive theory classes) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0. g
+42.5196850393700814 374.1734645669290558 Td
+(}) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0. g
+42.5196850393700814 357.1655905511810261 Td
+(return true;) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0. g
+42.5196850393700814 340.1577165354329964 Td
+(};) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0. g
+42.5196850393700814 323.1498425196849666 Td
+(```) Tj
+ET
+BT
+/F2 16 Tf
+18.3999999999999986 TL
+0.118 0.161 0.231 rg
+42.5196850393700814 291.9687401574802834 Td
+(11. Advantages) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0. g
+42.5196850393700814 257.952992125984224 Td
+(- **Efficiency**: Reduces scheduling time from hours to seconds.) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0. g
+42.5196850393700814 240.9451181102361943 Td
+(- **Accuracy**: Eliminates human error and hidden conflicts.) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0. g
+42.5196850393700814 223.9372440944881646 Td
+(- **Flexibility**: Easily adapts to mid-semester changes or staff substitutions.) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0. g
+42.5196850393700814 206.9293700787401349 Td
+(- **Cloud-Ready**: Centralized data access for all faculty members.) Tj
+ET
+BT
+/F2 16 Tf
+18.3999999999999986 TL
+0.118 0.161 0.231 rg
+42.5196850393700814 175.748267716535338 Td
+(12. Deep Dive Into the Heuristic Algorithm) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0. g
+42.5196850393700814 141.7325196850392786 Td
+(The core of the **Timetable Generator** is a sophisticated heuristic algorithm designed to handle NP-hard) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0. g
+42.5196850393700814 124.7246456692912489 Td
+(scheduling problems with a greedy-first approach combined with constraint validation.) Tj
+ET
+BT
+/F2 13 Tf
+14.9499999999999993 TL
+0.2 0.255 0.333 rg
+42.5196850393700814 93.5435433070865656 Td
+(Placement Strategy) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0. g
+42.5196850393700814 65.1970866141731449 Td
+(1. **Priority Scheduling**: The algorithm first allocates fixed slots \(manually pinned by the user\) and global activities) Tj
+ET
+endstream
+endobj
+11 0 obj
+<</Type /Page
+/Parent 1 0 R
+/Resources 2 0 R
+/MediaBox [0 0 595.2799999999999727 841.8899999999999864]
+/Contents 12 0 R
+>>
+endobj
+12 0 obj
+<<
+/Length 4388
+>>
+stream
+2.8346456692913389 w
+0.15 0.39 0.92 RG
+BT
+/F1 10 Tf
+11.5 TL
+0. g
+42.5196850393700814 771.0238582677164914 Td
+(\(GEAR UP, Counseling\).) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0. g
+42.5196850393700814 754.0159842519684616 Td
+(2. **Lab Blocks**: Laboratory sessions are placed next because they require continuous 2 or 4-period blocks, which) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0. g
+42.5196850393700814 737.0081102362204319 Td
+(are the most constrained resources.) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0. g
+42.5196850393700814 720.0002362204724022 Td
+(3. **Theory Distribution**: Theory classes are distributed across the remaining slots while ensuring that no subject) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0. g
+42.5196850393700814 702.9923622047243725 Td
+(is taught twice on the same day \(unless specifically configured as a hybrid\).) Tj
+ET
+BT
+/F2 13 Tf
+14.9499999999999993 TL
+0.2 0.255 0.333 rg
+42.5196850393700814 671.8112598425196893 Td
+(Constraint Validation Logic) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0. g
+42.5196850393700814 643.4648031496062686 Td
+(The algorithm checks each potential placement against three levels of constraints:) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0. g
+42.5196850393700814 626.4569291338582389 Td
+(- **Local Grid Constraints**: Is the slot empty in the current section's timetable?) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0. g
+42.5196850393700814 609.4490551181102092 Td
+(- **Staff Global Constraints**: Is the assigned staff member already teaching in another section during this period?) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0. g
+42.5196850393700814 592.4411811023621794 Td
+(- **Subject/Resource Constraints**: Is the subject resource \(e.g., a specific lab\) currently in use by another class?) Tj
+ET
+BT
+/F2 13 Tf
+14.9499999999999993 TL
+0.2 0.255 0.333 rg
+42.5196850393700814 561.2600787401574962 Td
+(Backtracking & Retries) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0. g
+42.5196850393700814 532.9136220472440755 Td
+(When the algorithm encounters a "dead-end" where no valid slot can be found for a subject, it reports the failure in) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0. g
+42.5196850393700814 515.9057480314959321 Td
+(the `unplacedSubjects` list. This allows the user to either re-configure staff availability or manually override the) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0. g
+42.5196850393700814 498.8978740157479592 Td
+(constraint.) Tj
+ET
+BT
+/F2 16 Tf
+18.3999999999999986 TL
+0.118 0.161 0.231 rg
+42.5196850393700814 467.716771653543276 Td
+(13. Installation & Technical Setup) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0. g
+42.5196850393700814 433.7010236220471597 Td
+(To deploy the **Timetable Generator** locally or on a server, follow these steps:) Tj
+ET
+BT
+/F2 13 Tf
+14.9499999999999993 TL
+0.2 0.255 0.333 rg
+42.5196850393700814 402.5199212598424765 Td
+(Prerequisites) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0. g
+42.5196850393700814 374.1734645669290558 Td
+(- **Node.js**: Version 18.x or higher.) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0. g
+42.5196850393700814 357.1655905511810261 Td
+(- **MongoDB**: A running instance \(local or Atlas\).) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0. g
+42.5196850393700814 340.1577165354329964 Td
+(- **Package Manager**: npm or yarn.) Tj
+ET
+BT
+/F2 13 Tf
+14.9499999999999993 TL
+0.2 0.255 0.333 rg
+42.5196850393700814 308.9766141732283131 Td
+(Frontend Setup) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0. g
+42.5196850393700814 280.6301574803148924 Td
+(1. Navigate to the project root:) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0. g
+42.5196850393700814 263.6222834645668627 Td
+(```bash) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0. g
+42.5196850393700814 246.614409448818833 Td
+(cd timetable) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0. g
+42.5196850393700814 229.6065354330708033 Td
+(```) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0. g
+42.5196850393700814 212.5986614173227736 Td
+(2. Install dependencies:) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0. g
+42.5196850393700814 195.5907874015747439 Td
+(```bash) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0. g
+42.5196850393700814 178.5829133858267141 Td
+(npm install) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0. g
+42.5196850393700814 161.5750393700786844 Td
+(```) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0. g
+42.5196850393700814 144.5671653543306547 Td
+(3. Start the development server:) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0. g
+42.5196850393700814 127.559291338582625 Td
+(```bash) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0. g
+42.5196850393700814 110.5514173228345953 Td
+(npm run dev) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0. g
+42.5196850393700814 93.5435433070865656 Td
+(```) Tj
+ET
+BT
+/F2 13 Tf
+14.9499999999999993 TL
+0.2 0.255 0.333 rg
+42.5196850393700814 62.3624409448817687 Td
+(Backend Setup) Tj
+ET
+endstream
+endobj
+13 0 obj
+<</Type /Page
+/Parent 1 0 R
+/Resources 2 0 R
+/MediaBox [0 0 595.2799999999999727 841.8899999999999864]
+/Contents 14 0 R
+>>
+endobj
+14 0 obj
+<<
+/Length 4380
+>>
+stream
+2.8346456692913389 w
+0.15 0.39 0.92 RG
+BT
+/F1 10 Tf
+11.5 TL
+0. g
+42.5196850393700814 785.1970866141732586 Td
+(1. Navigate to the server directory:) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0. g
+42.5196850393700814 768.1892125984252289 Td
+(```bash) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0. g
+42.5196850393700814 751.1813385826771992 Td
+(cd timetable/server) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0. g
+42.5196850393700814 734.1734645669291695 Td
+(```) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0. g
+42.5196850393700814 717.1655905511811397 Td
+(2. Create a `.env` file and add your MongoDB URI:) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0. g
+42.5196850393700814 700.15771653543311 Td
+(```env) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0. g
+42.5196850393700814 683.1498425196850803 Td
+(MONGODB_URI=mongodb+srv://<username>:<password>@cluster.mongodb.net/timetable) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0. g
+42.5196850393700814 666.1419685039369369 Td
+(PORT=5000) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0. g
+42.5196850393700814 649.1340944881889072 Td
+(```) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0. g
+42.5196850393700814 632.1262204724408775 Td
+(3. Install dependencies:) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0. g
+42.5196850393700814 615.1183464566928478 Td
+(```bash) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0. g
+42.5196850393700814 598.1104724409448181 Td
+(npm install) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0. g
+42.5196850393700814 581.1025984251967884 Td
+(```) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0. g
+42.5196850393700814 564.0947244094487587 Td
+(4. Start the backend:) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0. g
+42.5196850393700814 547.086850393700729 Td
+(```bash) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0. g
+42.5196850393700814 530.0789763779526993 Td
+(node server.js) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0. g
+42.5196850393700814 513.0711023622046696 Td
+(```) Tj
+ET
+BT
+/F2 16 Tf
+18.3999999999999986 TL
+0.118 0.161 0.231 rg
+42.5196850393700814 481.8899999999999295 Td
+(14. User Manual & Operations Guide) Tj
+ET
+BT
+/F2 13 Tf
+14.9499999999999993 TL
+0.2 0.255 0.333 rg
+42.5196850393700814 447.8742519685038701 Td
+(Configuring Staff) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0. g
+42.5196850393700814 419.5277952755905062 Td
+(Before generating a timetable, navigate to the **Staff Management** page. Add faculty members and specify their) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0. g
+42.5196850393700814 402.5199212598424765 Td
+(department. The system will automatically track their workload to ensure they don't exceed 5 periods per day.) Tj
+ET
+BT
+/F2 13 Tf
+14.9499999999999993 TL
+0.2 0.255 0.333 rg
+42.5196850393700814 371.3388188976377364 Td
+(Setting Up Subjects) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0. g
+42.5196850393700814 342.9923622047243725 Td
+(In the **Subjects** page, define the subject hierarchy for each year and semester. You can specify:) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0. g
+42.5196850393700814 325.9844881889763428 Td
+(- **Credits**: Determines the number of periods per week.) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0. g
+42.5196850393700814 308.9766141732283131 Td
+(- **Type**: Choose between Theory, Lab, or Hybrid.) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0. g
+42.5196850393700814 291.9687401574802834 Td
+(- **Staff Assignment**: Map specific staff members to subjects.) Tj
+ET
+BT
+/F2 13 Tf
+14.9499999999999993 TL
+0.2 0.255 0.333 rg
+42.5196850393700814 260.7876377952754865 Td
+(Generating the Timetable) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0. g
+42.5196850393700814 232.4411811023621794 Td
+(1. Select the **Year**, **Semester**, and **Section** from the Dashboard.) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0. g
+42.5196850393700814 215.4333070866141497 Td
+(2. Click on **Generate**.) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0. g
+42.5196850393700814 198.4254330708660063 Td
+(3. Review the grid for any "Conflict" markers \(highlighted in red\).) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0. g
+42.5196850393700814 181.4175590551179766 Td
+(4. Use the **Manual Edit** mode if you need to swap periods.) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0. g
+42.5196850393700814 164.4096850393699469 Td
+(5. Click **Save to DB** to persist the changes.) Tj
+ET
+BT
+/F2 16 Tf
+18.3999999999999986 TL
+0.118 0.161 0.231 rg
+42.5196850393700814 133.2285826771652637 Td
+(15. System Workflow Detail) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0. g
+42.5196850393700814 99.2128346456692043 Td
+(The workflow is designed to be cyclical, allowing for continuous refinement:) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0. g
+42.5196850393700814 82.2049606299211746 Td
+(1. **Input**: Data entry for staff/subjects.) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0. g
+42.5196850393700814 65.1970866141731449 Td
+(2. **Process**: Algorithm runs and generates a draft.) Tj
+ET
+endstream
+endobj
+15 0 obj
+<</Type /Page
+/Parent 1 0 R
+/Resources 2 0 R
+/MediaBox [0 0 595.2799999999999727 841.8899999999999864]
+/Contents 16 0 R
+>>
+endobj
+16 0 obj
+<<
+/Length 4299
+>>
+stream
+2.8346456692913389 w
+0.15 0.39 0.92 RG
+BT
+/F1 10 Tf
+11.5 TL
+0. g
+42.5196850393700814 785.1970866141732586 Td
+(3. **Feedback**: User reviews failures and adjusts constraints.) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0. g
+42.5196850393700814 768.1892125984252289 Td
+(4. **Refinement**: Re-generation or manual adjustment.) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0. g
+42.5196850393700814 751.1813385826771992 Td
+(5. **Output**: Publication and PDF generation.) Tj
+ET
+BT
+/F2 16 Tf
+18.3999999999999986 TL
+0.118 0.161 0.231 rg
+42.5196850393700814 720.0002362204724022 Td
+(16. Database Schema Design \(Extended\)) Tj
+ET
+BT
+/F2 13 Tf
+14.9499999999999993 TL
+0.2 0.255 0.333 rg
+42.5196850393700814 685.9844881889763428 Td
+(Timetable Collection) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0. g
+42.5196850393700814 657.6380314960629221 Td
+(```json) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0. g
+42.5196850393700814 640.6301574803148924 Td
+({) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0. g
+42.5196850393700814 623.6222834645668627 Td
+("_id": "ObjectId",) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0. g
+42.5196850393700814 606.614409448818833 Td
+("year": "2024",) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0. g
+42.5196850393700814 589.6065354330708033 Td
+("section": "A",) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0. g
+42.5196850393700814 572.5986614173227736 Td
+("config": {) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0. g
+42.5196850393700814 555.5907874015747439 Td
+("semester": "Odd",) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0. g
+42.5196850393700814 538.5829133858267141 Td
+("subjects": [ ... ]) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0. g
+42.5196850393700814 521.5750393700786844 Td
+(},) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0. g
+42.5196850393700814 504.5671653543306547 Td
+("timetable": {) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0. g
+42.5196850393700814 487.559291338582625 Td
+("Monday": [) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0. g
+42.5196850393700814 470.5514173228345953 Td
+({ "slot": 1, "code": "CS101", "staff": "Dr. Smith" },) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0. g
+42.5196850393700814 453.5435433070865656 Td
+(...) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0. g
+42.5196850393700814 436.5356692913385359 Td
+(]) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0. g
+42.5196850393700814 419.5277952755905062 Td
+(},) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0. g
+42.5196850393700814 402.5199212598424765 Td
+("isPublished": true,) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0. g
+42.5196850393700814 385.5120472440944468 Td
+("timestamp": "ISODate") Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0. g
+42.5196850393700814 368.5041732283464171 Td
+(}) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0. g
+42.5196850393700814 351.4962992125983874 Td
+(```) Tj
+ET
+BT
+/F2 16 Tf
+18.3999999999999986 TL
+0.118 0.161 0.231 rg
+42.5196850393700814 320.3151968503935905 Td
+(17. Future Enhancements & Roadmap) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0. g
+42.5196850393700814 286.2994488188975311 Td
+(The project is continuously evolving. Planned features include:) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0. g
+42.5196850393700814 269.2915748031495013 Td
+(- **AI-Based Optimization**: Using genetic algorithms to find the "perfect" timetable that minimizes staff gaps.) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0. g
+42.5196850393700814 252.2837007874014716 Td
+(- **Mobile Integration**: A PWA or mobile app for students to view their schedules on the go.) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0. g
+42.5196850393700814 235.2758267716534419 Td
+(- **Classroom Allocation**: Specialized module for managing physical classroom capacity.) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0. g
+42.5196850393700814 218.2679527559054122 Td
+(- **Automated Substitutions**: Real-time management of faculty leave and temporary replacements.) Tj
+ET
+BT
+/F2 16 Tf
+18.3999999999999986 TL
+0.118 0.161 0.231 rg
+42.5196850393700814 187.086850393700729 Td
+(18. Troubleshooting & FAQ) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0. g
+42.5196850393700814 153.0711023622046696 Td
+(**Q: Why are some subjects unplaced?**) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0. g
+42.5196850393700814 136.0632283464566399 Td
+(A: This usually happens when the assigned staff is busy in all available slots for that section, or when there are too) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0. g
+42.5196850393700814 119.0553543307086102 Td
+(many Lab blocks to fit in a 6-day week.) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0. g
+42.5196850393700814 87.8742519685038133 Td
+(**Q: How do I change a fixed slot?**) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0. g
+42.5196850393700814 70.8663779527557836 Td
+(A: Navigate to the generation configuration, find the subject, and clear the "Fixed Day/Slot" fields.) Tj
+ET
+endstream
+endobj
+17 0 obj
+<</Type /Page
+/Parent 1 0 R
+/Resources 2 0 R
+/MediaBox [0 0 595.2799999999999727 841.8899999999999864]
+/Contents 18 0 R
+>>
+endobj
+18 0 obj
+<<
+/Length 648
+>>
+stream
+2.8346456692913389 w
+0.15 0.39 0.92 RG
+BT
+/F2 16 Tf
+18.3999999999999986 TL
+0.118 0.161 0.231 rg
+42.5196850393700814 771.0238582677164914 Td
+(19. Conclusion) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0. g
+42.5196850393700814 737.0081102362204319 Td
+(The **Timetable Generator** is more than just a scheduling tool; it is a comprehensive management system for) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0. g
+42.5196850393700814 720.0002362204724022 Td
+(educational logistics. By automating the hardest part of academic administration, it allows educators to focus on) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0. g
+42.5196850393700814 702.9923622047243725 Td
+(what matters most: teaching.) Tj
+ET
+endstream
+endobj
+1 0 obj
+<</Type /Pages
+/Kids [3 0 R 5 0 R 7 0 R 9 0 R 11 0 R 13 0 R 15 0 R 17 0 R ]
+/Count 8
+>>
+endobj
+19 0 obj
+<<
+/Type /Font
+/BaseFont /Helvetica
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+20 0 obj
+<<
+/Type /Font
+/BaseFont /Helvetica-Bold
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+21 0 obj
+<<
+/Type /Font
+/BaseFont /Helvetica-Oblique
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+22 0 obj
+<<
+/Type /Font
+/BaseFont /Helvetica-BoldOblique
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+23 0 obj
+<<
+/Type /Font
+/BaseFont /Courier
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+24 0 obj
+<<
+/Type /Font
+/BaseFont /Courier-Bold
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+25 0 obj
+<<
+/Type /Font
+/BaseFont /Courier-Oblique
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+26 0 obj
+<<
+/Type /Font
+/BaseFont /Courier-BoldOblique
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+27 0 obj
+<<
+/Type /Font
+/BaseFont /Times-Roman
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+28 0 obj
+<<
+/Type /Font
+/BaseFont /Times-Bold
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+29 0 obj
+<<
+/Type /Font
+/BaseFont /Times-Italic
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+30 0 obj
+<<
+/Type /Font
+/BaseFont /Times-BoldItalic
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+31 0 obj
+<<
+/Type /Font
+/BaseFont /ZapfDingbats
+/Subtype /Type1
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+32 0 obj
+<<
+/Type /Font
+/BaseFont /Symbol
+/Subtype /Type1
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+2 0 obj
+<<
+/ProcSet [/PDF /Text /ImageB /ImageC /ImageI]
+/Font <<
+/F1 19 0 R
+/F2 20 0 R
+/F3 21 0 R
+/F4 22 0 R
+/F5 23 0 R
+/F6 24 0 R
+/F7 25 0 R
+/F8 26 0 R
+/F9 27 0 R
+/F10 28 0 R
+/F11 29 0 R
+/F12 30 0 R
+/F13 31 0 R
+/F14 32 0 R
+>>
+/XObject <<
+>>
+>>
+endobj
+33 0 obj
+<<
+/Producer (jsPDF 4.0.0)
+/CreationDate (D:20260326192450+05'30')
+>>
+endobj
+34 0 obj
+<<
+/Type /Catalog
+/Pages 1 0 R
+/OpenAction [3 0 R /FitH null]
+/PageLayout /OneColumn
+>>
+endobj
+xref
+0 35
+0000000000 65535 f 
+0000029722 00000 n 
+0000031590 00000 n 
+0000000015 00000 n 
+0000000152 00000 n 
+0000000895 00000 n 
+0000001032 00000 n 
+0000005949 00000 n 
+0000006086 00000 n 
+0000010780 00000 n 
+0000010918 00000 n 
+0000015240 00000 n 
+0000015379 00000 n 
+0000019820 00000 n 
+0000019959 00000 n 
+0000024392 00000 n 
+0000024531 00000 n 
+0000028883 00000 n 
+0000029022 00000 n 
+0000029825 00000 n 
+0000029951 00000 n 
+0000030082 00000 n 
+0000030216 00000 n 
+0000030354 00000 n 
+0000030478 00000 n 
+0000030607 00000 n 
+0000030739 00000 n 
+0000030875 00000 n 
+0000031003 00000 n 
+0000031130 00000 n 
+0000031259 00000 n 
+0000031392 00000 n 
+0000031494 00000 n 
+0000031843 00000 n 
+0000031929 00000 n 
+trailer
+<<
+/Size 35
+/Root 34 0 R
+/Info 33 0 R
+/ID [ <1DEB1A503EE99FCFFEC821A5AE72B734> <1DEB1A503EE99FCFFEC821A5AE72B734> ]
+>>
+startxref
+32033
+%%EOF

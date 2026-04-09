@@ -1,0 +1,14 @@
+@import "tailwindcss";
+
+@theme {
+    /* Kamaraj College Theme: Modern Purple & Violet */
+    --color-brand-blue: #8b5cf6; /* Soft Violet */
+    --color-brand-light: #f5f3ff; /* Very light violet */
+    --color-brand-dark: #2e1065; /* Deep Purple */
+    --color-brand-accent: #d946ef; /* Fuchsia */
+    
+    --color-brand-primary: #7c3aed; /* Main Action Color */
+    --color-brand-secondary: #475569; /* Slate 600 */
+    
+    --font-sans: 'Inter', sans-serif;
+}

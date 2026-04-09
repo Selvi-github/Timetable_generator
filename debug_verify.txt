@@ -1,0 +1,4 @@
+
+Keys: subjects, honors
+Honors Array: [{"code":"HON_TEST","name":"Test Honors Subject","type":"theory","academicRule":{"totalPeriods":45,"periodsPerWeek":3,"continuous":false},"staffConfig":{"primary":["Mr.TestStaff"],"substitute":[],"coordinator":""}}]
+Subjects Array Length: 11

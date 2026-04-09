@@ -95,6 +95,7 @@ export const generateTimetable = (config, allSubjectsOverride = null) => {
     let globalStaffUsage = getStorage('timetable_global_staff_usage');
     let globalSubjectUsage = getStorage('timetable_global_subject_usage');
     let globalHonorsSlots = getStorage('timetable_global_honors');
+    let globalCommonSlots = getStorage('timetable_global_common'); // New: Sync for Hall Lectures
 
     const currentContextKey = `${year}_${section}`;
 
@@ -237,21 +238,17 @@ export const generateTimetable = (config, allSubjectsOverride = null) => {
         // Get Compounded Usage (Global + Local)
         const allSlots = getGlobalStaffSlots(staffName, day);
 
-        // 2. Global + Local Daily Limit Check (Max 5 per day)
+        // 2. Global + Local Daily Limit Check (Max 4 per day)
         // If we are about to add this slot, count will be length + 1
-        if (allSlots.length >= 5) return false;
+        if (allSlots.length >= 4) return false;
 
-        // 3. Global + Local Continuous Check (Max 2 consecutive for non-lab)
-        if (!isLab) {
-            const hypotheticalSlots = [...allSlots, slot].sort((a, b) => a - b);
-            let consecutive = 1;
-            for (let i = 1; i < hypotheticalSlots.length; i++) {
-                if (hypotheticalSlots[i] === hypotheticalSlots[i - 1] + 1) {
-                    consecutive++;
-                    if (consecutive > 2) return false;
-                } else {
-                    consecutive = 1;
-                }
+        // 3. ZERO Continuity (Constraint: No back-to-back periods)
+        // Staff MUST have at least 1 period gap between any classes
+        const hypotheticalSlots = [...allSlots, slot].sort((a, b) => a - b);
+        for (let i = 1; i < hypotheticalSlots.length; i++) {
+            if (hypotheticalSlots[i] === hypotheticalSlots[i - 1] + 1) {
+                // Return false if any two slots are consecutive (e.g. 1 & 2)
+                return false;
             }
         }
 
@@ -296,7 +293,7 @@ export const generateTimetable = (config, allSubjectsOverride = null) => {
         if (isHybrid) {
             // Split into TWO allocation requests
             // Rule: 4 periods total -> 2 periods continuous Lab + 2 periods Theory
-            // 1. Lab Component (2 periods continuous)
+            // 1. Lab Component (2 periods continuous, afternoon only)
             allocateList.push({
                 ...data,
                 virtualId: data.code + '_LAB',
@@ -307,12 +304,12 @@ export const generateTimetable = (config, allSubjectsOverride = null) => {
                 isSplit: true,
                 allocatedCount: 0
             });
-            // 2. Theory Component (2 periods)
+            // 2. Theory Component (2 periods, separate days)
             allocateList.push({
                 ...data,
                 virtualId: data.code + '_THEORY',
                 type: 'theory',
-                academicRule: { ...data.academicRule, periodsPerWeek: data.academicRule.periodsPerWeek - 2, continuous: false },
+                academicRule: { ...data.academicRule, periodsPerWeek: 2, continuous: false },
                 fixedDay: null,
                 fixedSlot: null,
                 isSplit: true,
@@ -370,31 +367,51 @@ export const generateTimetable = (config, allSubjectsOverride = null) => {
                 // Skip allocateList
             } else {
                 // Case 2: Not Synced OR Normal Subject
-                const periodType = sel.periodType || 'non-continuous';
-                let ruleOverride = { ...data.academicRule };
-                let typeOverride = data.type;
+                const isCommon = data.isCommon || data.category === 'common';
+                const globalKeyCommon = `${year}_${semester}_${sel.code}`;
+                const syncedCommonSlots = isCommon ? globalCommonSlots[globalKeyCommon] : null;
 
-                // Apply User Overrides
-                if (periodType === 'continuous') {
-                    typeOverride = 'lab'; // Force block logic
-                    ruleOverride.continuous = true;
-                    if (sel.continuousCount) {
-                        ruleOverride.periodsPerWeek = sel.continuousCount;
-                    }
+                if (syncedCommonSlots && Array.isArray(syncedCommonSlots)) {
+                    // Sync Hall Lecture (Follow Section A/Leader)
+                    syncedCommonSlots.forEach(ss => {
+                        let assignedStaff = 'TBD';
+                        const sectionStaff = getSectionStaff(data.staffConfig, section);
+                        // Case 7: One staff for ALL sections. We usually pick the first available.
+                        for (const staff of sectionStaff) {
+                            if (isStaffFree(staff, ss.day, ss.slot, timetable) && isResourceFree(data.code, ss.day, ss.slot)) {
+                                assignedStaff = staff;
+                                break;
+                            }
+                        }
+                        bookResource(assignedStaff, data.code, ss.day, ss.slot);
+                        timetable[ss.day].push({
+                            slot: ss.slot, code: data.code, name: data.name, staff: assignedStaff, isFixed: true, type: data.type
+                        });
+                    });
                 } else {
-                    // Ensure non-continuous strictly enforces separate days if theory
-                    ruleOverride.continuous = false;
-                }
+                    const periodType = sel.periodType || 'non-continuous';
+                    let ruleOverride = { ...data.academicRule };
+                    let typeOverride = data.type;
 
-                allocateList.push({
-                    ...data,
-                    fixedDay: sel.fixedDay,
-                    fixedSlot: sel.fixedSlot,
-                    type: typeOverride,
-                    academicRule: ruleOverride,
-                    allocatedCount: 0,
-                    isHonors: isHonors
-                });
+                    if (periodType === 'continuous') {
+                        typeOverride = 'lab';
+                        ruleOverride.continuous = true;
+                        if (sel.continuousCount) ruleOverride.periodsPerWeek = sel.continuousCount;
+                    } else {
+                        ruleOverride.continuous = false;
+                    }
+
+                    allocateList.push({
+                        ...data,
+                        fixedDay: sel.fixedDay,
+                        fixedSlot: sel.fixedSlot,
+                        type: typeOverride,
+                        academicRule: ruleOverride,
+                        allocatedCount: 0,
+                        isHonors: isHonors,
+                        isCommon: isCommon
+                    });
+                }
             }
         }
     });
@@ -611,11 +628,18 @@ export const generateTimetable = (config, allSubjectsOverride = null) => {
 
             for (const day of shuffledDays) {
                 if (placed) break;
-                // If it's a split lab (2 periods), can fit in more places.
-                // Standard Lab (4 periods): Starts 1, 2, 3, 5
-                const possibleStarts = blockSize === 4 ? [1, 5] : [1, 2, 3, 5, 6, 7];
+                
+                // NO LABS on Saturday (User Constraint)
+                if (day === 'Saturday') continue;
 
-                for (const start of possibleStarts) {
+                // If it's a split lab (2 periods), can fit in more places.
+                // Constraint: NO morning labs. Everything MUST start in afternoon.
+                const possibleStarts = [5]; 
+                // Note: For blockSize=2, [5, 6, 7] would be valid, but typically 5-6 or 7-8. 
+                // Let's stick strictly to [5] for 4-period and [5, 7] for 2-period.
+                const activeStarts = blockSize === 2 ? [5, 7] : [5];
+
+                for (const start of activeStarts) {
                     if (start + blockSize - 1 > 8) continue;
                     if (start <= 4 && start + blockSize - 1 > 4) continue; // Lunch break constraint
 
@@ -770,12 +794,19 @@ export const generateTimetable = (config, allSubjectsOverride = null) => {
                 (semesterInfo.subjects || []).find(s => s.code === slot.code)?.category === 'honour';
             if (isHonors) {
                 const globalKey = `${year}_${semester}_${slot.code}`;
-                if (!Array.isArray(globalHonorsSlots[globalKey])) {
-                    globalHonorsSlots[globalKey] = [];
-                }
-
+                if (!Array.isArray(globalHonorsSlots[globalKey])) globalHonorsSlots[globalKey] = [];
                 if (!globalHonorsSlots[globalKey].some(s => s.day === day && s.slot === slot.slot)) {
                     globalHonorsSlots[globalKey].push({ day: day, slot: slot.slot });
+                }
+            }
+            // Save Common Allocation (Leader section sets the hall lecture timing)
+            const isCommon = (semesterInfo.subjects || []).find(s => s.code === slot.code)?.isCommon || 
+                             (semesterInfo.subjects || []).find(s => s.code === slot.code)?.category === 'common';
+            if (isCommon) {
+                const globalKey = `${year}_${semester}_${slot.code}`;
+                if (!Array.isArray(globalCommonSlots[globalKey])) globalCommonSlots[globalKey] = [];
+                if (!globalCommonSlots[globalKey].some(s => s.day === day && s.slot === slot.slot)) {
+                    globalCommonSlots[globalKey].push({ day: day, slot: slot.slot });
                 }
             }
         });
@@ -788,6 +819,7 @@ export const generateTimetable = (config, allSubjectsOverride = null) => {
             localStorage.setItem('timetable_global_staff_usage', JSON.stringify(globalStaffUsage));
             localStorage.setItem('timetable_global_subject_usage', JSON.stringify(globalSubjectUsage));
             localStorage.setItem('timetable_global_honors', JSON.stringify(globalHonorsSlots));
+            localStorage.setItem('timetable_global_common', JSON.stringify(globalCommonSlots));
         } catch (e) { console.error(e); }
     }
 

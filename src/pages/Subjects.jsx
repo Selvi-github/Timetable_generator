@@ -73,6 +73,7 @@ const Subjects = () => {
         name: '',
         type: 'theory',
         category: 'normal',
+        isCommon: false, // New: Big hall lecturer
         academicRule: { totalPeriods: 45, periodsPerWeek: 5, continuous: false },
         staffConfig: { primary: [], substitute: [], coordinator: '' },
         sectionStaff: { A: '', B: '', C: '' } // Internal state for multi-part entry
@@ -154,6 +155,7 @@ const Subjects = () => {
                 name: newSubject.name,
                 type: newSubject.type,
                 category: newSubject.category || 'normal',
+                isCommon: newSubject.isCommon, // Persist hall lecture flag
                 academicRule: { ...newSubject.academicRule },
                 staffConfig: {
                     ...newSubject.staffConfig,
@@ -190,7 +192,8 @@ const Subjects = () => {
                     code: '',
                     name: '',
                     type: 'theory',
-                    academicRule: { totalPeriods: 60, periodsPerWeek: 4, continuous: false },
+                    isCommon: false,
+                    academicRule: { totalPeriods: 60, periodsPerWeek: 5, continuous: false },
                     staffConfig: { primary: [], substitute: [], coordinator: '' },
                     sectionStaff: { A: '', B: '', C: '' }
                 });
@@ -464,14 +467,22 @@ const Subjects = () => {
                                     </div>
                                     <div className="grid grid-cols-2 gap-4">
                                         <div>
-                                            <label className="block text-sm font-medium text-gray-700 mb-1">Subject Type</label>
+                                            <label className="block text-sm font-medium text-gray-700 mb-1">Subject Category</label>
                                             <select
-                                                value={newSubject.category || 'normal'}
-                                                onChange={e => setNewSubject({ ...newSubject, category: e.target.value })}
+                                                value={newSubject.isCommon ? 'common' : (newSubject.category || 'normal')}
+                                                onChange={e => {
+                                                    const val = e.target.value;
+                                                    if (val === 'common') {
+                                                        setNewSubject({ ...newSubject, isCommon: true, category: 'normal' });
+                                                    } else {
+                                                        setNewSubject({ ...newSubject, isCommon: false, category: val });
+                                                    }
+                                                }}
                                                 className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-brand-accent outline-none"
                                             >
                                                 <option value="normal">Normal</option>
-                                                <option value="honour">Honour</option>
+                                                <option value="honour">Honour (Cross-Department Sync)</option>
+                                                <option value="common">Common (Big Hall - All Sections Sync)</option>
                                             </select>
                                         </div>
                                         <div>
@@ -604,14 +615,22 @@ const Subjects = () => {
                                         </div>
                                         <div className="grid grid-cols-2 gap-4">
                                             <div>
-                                                <label className="block text-sm font-medium text-gray-700 mb-1">Subject Type</label>
+                                                <label className="block text-sm font-medium text-gray-700 mb-1">Subject Category</label>
                                                 <select
-                                                    value={editingSubject.category || 'normal'}
-                                                    onChange={e => setEditingSubject({ ...editingSubject, category: e.target.value })}
+                                                    value={editingSubject.isCommon ? 'common' : (editingSubject.category || 'normal')}
+                                                    onChange={e => {
+                                                        const val = e.target.value;
+                                                        if (val === 'common') {
+                                                            setEditingSubject({ ...editingSubject, isCommon: true, category: 'normal' });
+                                                        } else {
+                                                            setEditingSubject({ ...editingSubject, isCommon: false, category: val });
+                                                        }
+                                                    }}
                                                     className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-brand-accent outline-none"
                                                 >
                                                     <option value="normal">Normal</option>
-                                                    <option value="honour">Honour</option>
+                                                    <option value="honour">Honour (Cross-Department Sync)</option>
+                                                    <option value="common">Common (Big Hall - All Sections Sync)</option>
                                                 </select>
                                             </div>
                                             <div>

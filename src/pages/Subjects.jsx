@@ -5,6 +5,7 @@ import { getUnifiedSubjectData, saveUnifiedSubjectData, fetchUnifiedSubjectData 
 import { getSectionStaff } from '../utils/timetableGenerator';
 import { BookOpen, FlaskConical, GraduationCap, LayoutGrid, Clock, Award, User, Users } from 'lucide-react';
 import { useUser } from '../context/UserContext';
+import Toast from '../components/Toast';
 
 // Helper removed in favor of unified dataStore
 
@@ -23,6 +24,12 @@ const Subjects = () => {
     const [isEditModalOpen, setIsEditModalOpen] = useState(false);
     const [editingSubject, setEditingSubject] = useState(null);
     const [originalCode, setOriginalCode] = useState(null);
+    const [toast, setToast] = useState({ message: '', type: 'success' });
+
+    const showToast = (message, type = 'success') => {
+        setToast({ message, type });
+    };
+    const closeToast = () => setToast({ message: '', type: 'success' });
 
     // Async Load Updates
     useEffect(() => {
@@ -212,29 +219,42 @@ const Subjects = () => {
 
     const handleUpdateSubject = async (e) => {
         e.preventDefault();
-        // Use deep clone to ensure reactivity and avoid mutating shared references
-        const updatedData = JSON.parse(JSON.stringify(localSubjectData));
-        const sem = updatedData[selectedYear][selectedSemester];
+        try {
+            // Use deep clone to ensure reactivity and avoid mutating shared references
+            const updatedData = JSON.parse(JSON.stringify(localSubjectData));
+            const sem = updatedData[selectedYear][selectedSemester];
 
-        // Update in subjects or honors array
-        // Migration: If category changed OR code changed, move/replace efficiently
-        // 1. Remove from BOTH to avoid duplicates/ghosts
-        sem.subjects = (sem.subjects || []).filter(s => s.code !== originalCode && s.code !== editingSubject.code);
-        sem.honors = (sem.honors || []).filter(s => s.code !== originalCode && s.code !== editingSubject.code);
+            // Update in subjects or honors array
+            // Migration: If category changed OR code changed, move/replace efficiently
+            // 1. Remove from BOTH to avoid duplicates/ghosts
+            sem.subjects = (sem.subjects || []).filter(s => s.code !== originalCode && s.code !== editingSubject.code);
+            sem.honors = (sem.honors || []).filter(s => s.code !== originalCode && s.code !== editingSubject.code);
 
-        // 2. Insert into the correct array
-        if (editingSubject.category === 'honour') {
-            if (!sem.honors) sem.honors = [];
-            sem.honors.push({ ...editingSubject });
-        } else {
-            if (!sem.subjects) sem.subjects = [];
-            sem.subjects.push({ ...editingSubject });
+            // 2. Insert into the correct array
+            if (editingSubject.category === 'honour') {
+                if (!sem.honors) sem.honors = [];
+                sem.honors.push({ ...editingSubject });
+            } else {
+                if (!sem.subjects) sem.subjects = [];
+                sem.subjects.push({ ...editingSubject });
+            }
+
+            setLocalSubjectData(updatedData);
+
+            try {
+                await saveUnifiedSubjectData(updatedData);
+                showToast('Subject updated successfully!', 'success');
+            } catch (apiErr) {
+                console.warn('Edit: API Save failed, but local storage is updated:', apiErr);
+                showToast('Saved locally, but failed to sync with cloud.', 'error');
+            }
+
+            setIsEditModalOpen(false);
+            setEditingSubject(null);
+        } catch (err) {
+            console.error('Critical failure in handleUpdateSubject:', err);
+            showToast('Failed to update subject. Please try again.', 'error');
         }
-
-        setLocalSubjectData(updatedData);
-        await saveUnifiedSubjectData(updatedData);
-        setIsEditModalOpen(false);
-        setEditingSubject(null);
     };
 
     return (
@@ -805,6 +825,13 @@ const Subjects = () => {
                 </AnimatePresence>
             </div>
         </div>
+
+        {/* Toast Notification */}
+        <Toast
+            message={toast.message}
+            type={toast.type}
+            onClose={closeToast}
+        />
     );
 };
 
